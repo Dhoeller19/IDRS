@@ -26,6 +26,66 @@ module.exports = function(controller) {
     // See: https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md#controllerstudiovalidate
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+    // Validate user input: nr_others
+    controller.studio.validate('Emergency_v2','nr_others', function(convo, next) {
+
+        var value = convo.extractResponse('nr_others');
+
+        // test or validate value somehow
+        // can call convo.gotoThread() to change direction of conversation
+
+        console.log('VALIDATE: Emergency_v2 VARIABLE: nr_others');
+
+        // always call next!
+        next();
+
+    });
+
+    // Validate user input: others_unc
+    controller.studio.validate('Emergency_v2','others_unc', function(convo, next) {
+
+        var value = convo.extractResponse('others_unc');
+
+        // test or validate value somehow
+        // can call convo.gotoThread() to change direction of conversation
+
+        console.log('VALIDATE: Emergency_v2 VARIABLE: others_unc');
+
+        // always call next!
+        next();
+
+    });
+
+    // Validate user input: others_y
+    controller.studio.validate('Emergency_v2','others_y', function(convo, next) {
+
+        var value = convo.extractResponse('others_y');
+
+        // test or validate value somehow
+        // can call convo.gotoThread() to change direction of conversation
+
+        console.log('VALIDATE: Emergency_v2 VARIABLE: others_y');
+
+        // always call next!
+        next();
+
+    });
+
+    // Validate user input: others_nb
+    controller.studio.validate('Emergency_v2','others_nb', function(convo, next) {
+
+        var value = convo.extractResponse('others_nb');
+
+        // test or validate value somehow
+        // can call convo.gotoThread() to change direction of conversation
+
+        console.log('VALIDATE: Emergency_v2 VARIABLE: others_nb');
+
+        // always call next!
+        next();
+
+    });
+
     // Validate user input: children
     controller.studio.validate('Emergency_v2','children', function(convo, next) {
 
@@ -451,13 +511,37 @@ module.exports = function(controller) {
         next();
     });
 
-    // Before the others_not_breathing thread starts, run this:
-    controller.studio.beforeThread('Emergency_v2','others_not_breathing', function(convo, next) {
+    // Before the others_nobreath thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','others_nobreath', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency_v2*, about to start the thread *others_not_breathing*');
+        console.log('In the script *Emergency_v2*, about to start the thread *others_nobreath*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the dummy thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','dummy', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *dummy*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the dummy2 thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','dummy2', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *dummy2*');
 
         // always call next!
         next();
