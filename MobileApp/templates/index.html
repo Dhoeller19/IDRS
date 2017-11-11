@@ -8,6 +8,7 @@
     <link rel="icon" href="{{ url_for('static', filename='Bootstrap/favicon.ico') }}">
     <script src="https://code.s4d.io/widget-space/production/bundle.js"></script>
     <link rel="stylesheet" href="https://code.s4d.io/widget-space/production/main.css">
+    <link rel="stylesheet" href="https://code.s4d.io/widget-space/production/main.css">
 
     <title>IDRS App</title>
 
@@ -17,33 +18,39 @@
     <link href="{{ url_for('static', filename='styleSheet.css') }}" rel="stylesheet">
   <style>
 
+  body{
+    overflow: hidden;
+    padding-top: 0rem;
+  }
+
+  
 </style>
+
   </head>
 
   <body>
 
-
-    <main role="main" class="container">
-
-    <div class="mainApp">
-      <h1>IDRS</h1>
-      <p class="lead">Intelligent Disaster Response System</p>
-    </div> 
-
-    <form id="form" method="post" enctype="multipart/form-data" action = "{{ url_for('testButton') }}">
-      <input type="text" name="textInput" id="file" />
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-    <div class="mainApp">
-      {% if inp %}
-      <h1>Hello {{ inp }} </h1>
-      {% endif %}
-    </div> 
-    
-    </main><!-- /.container -->
-
-	
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Intelligent Disaster Response System</h5>
+            </button>
+          </div>
+          <div class="modal-body">
+            Please use this chat to assess a victims state
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-xs-12 col-md-12 col-ld-12 col-centered">
+        <div id="my-ciscospark-widget" style="width: 100%; height: 800px;"/>
+	    </div>
+    </div>
 		<!-- <script> $('#messages').show(); </script> -->
 
     <!-- Bootstrap core JavaScript
@@ -56,15 +63,21 @@
     <script src="{{ url_for('static', filename='Bootstrap/assets/js/vendor/popper.min.js') }}"></script>
     <script src="{{ url_for('static', filename='Bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
-    <div id="my-ciscospark-widget" style="width: 500px; height: 500px;"/>
+    <script type="text/javascript">
+        $(window).on('load',function(){
+            $('#myModal').modal('show');
+        });
+    </script>
+
+    <script src="https://code.s4d.io/widget-space/production/bundle.js"></script>
     <script>
       var widgetEl = document.getElementById('my-ciscospark-widget');
       // Init a new widget
       ciscospark.widget(widgetEl).spaceWidget({
         accessToken: 'YzNmMWU5ZTAtYmIwNy00OGUyLWExYTMtMGVkN2JiMTM5ZWE0NzkyNDQ5MzYtMWMy',
-        toPersonEmail: 'idrs@sparkbot.io'
-      });
+        toPersonEmail: 'idrs@sparkbot.io'});
     </script>
+
 
   </body>
 </html>
