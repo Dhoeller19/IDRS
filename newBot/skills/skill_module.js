@@ -1,6 +1,6 @@
 /*
 
-Botkit Studio Skill module to enhance the "Emergency" script
+Botkit Studio Skill module to enhance the "Emergency_v2" script
 
 */
 
@@ -9,13 +9,13 @@ module.exports = function(controller) {
     // define a before hook
     // you may define multiple before hooks. they will run in the order they are defined.
     // See: https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md#controllerstudiobefore
-    controller.studio.before('Emergency', function(convo, next) {
+    controller.studio.before('Emergency_v2', function(convo, next) {
 
         // do some preparation before the conversation starts...
         // for example, set variables to be used in the message templates
         // convo.setVar('foo','bar');
 
-        console.log('BEFORE: Emergency');
+        console.log('BEFORE: Emergency_v2');
         // don't forget to call next, or your conversation will never continue.
         next();
 
@@ -26,75 +26,135 @@ module.exports = function(controller) {
     // See: https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md#controllerstudiovalidate
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-    // Validate user input: walking_yn
-    controller.studio.validate('Emergency','walking_yn', function(convo, next) {
+    // Validate user input: children
+    controller.studio.validate('Emergency_v2','children', function(convo, next) {
 
-        var value = convo.extractResponse('walking_yn');
+        var value = convo.extractResponse('children');
 
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log('VALIDATE: Emergency VARIABLE: walking_yn');
+        console.log('VALIDATE: Emergency_v2 VARIABLE: children');
 
         // always call next!
         next();
 
     });
 
-    // Validate user input: bleeding_yn
-    controller.studio.validate('Emergency','bleeding_yn', function(convo, next) {
+    // Validate user input: injury_types
+    controller.studio.validate('Emergency_v2','injury_types', function(convo, next) {
 
-        var value = convo.extractResponse('bleeding_yn');
+        var value = convo.extractResponse('injury_types');
 
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log('VALIDATE: Emergency VARIABLE: bleeding_yn');
+        console.log('VALIDATE: Emergency_v2 VARIABLE: injury_types');
 
         // always call next!
         next();
 
     });
 
-    // Validate user input: injured_yn
-    controller.studio.validate('Emergency','injured_yn', function(convo, next) {
+    // Validate user input: others_unconscious
+    controller.studio.validate('Emergency_v2','others_unconscious', function(convo, next) {
 
-        var value = convo.extractResponse('injured_yn');
+        var value = convo.extractResponse('others_unconscious');
 
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log('VALIDATE: Emergency VARIABLE: injured_yn');
+        console.log('VALIDATE: Emergency_v2 VARIABLE: others_unconscious');
 
         // always call next!
         next();
 
     });
 
-    // Validate user input: unconscious_no
-    controller.studio.validate('Emergency','unconscious_no', function(convo, next) {
+    // Validate user input: others_not_breathing
+    controller.studio.validate('Emergency_v2','others_not_breathing', function(convo, next) {
 
-        var value = convo.extractResponse('unconscious_no');
+        var value = convo.extractResponse('others_not_breathing');
 
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log('VALIDATE: Emergency VARIABLE: unconscious_no');
+        console.log('VALIDATE: Emergency_v2 VARIABLE: others_not_breathing');
 
         // always call next!
         next();
 
     });
 
-    // Validate user input: unconscious_yn
-    controller.studio.validate('Emergency','unconscious_yn', function(convo, next) {
+    // Validate user input: others_bleeding
+    controller.studio.validate('Emergency_v2','others_bleeding', function(convo, next) {
 
-        var value = convo.extractResponse('unconscious_yn');
+        var value = convo.extractResponse('others_bleeding');
 
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log('VALIDATE: Emergency VARIABLE: unconscious_yn');
+        console.log('VALIDATE: Emergency_v2 VARIABLE: others_bleeding');
+
+        // always call next!
+        next();
+
+    });
+
+    // Validate user input: others
+    controller.studio.validate('Emergency_v2','others', function(convo, next) {
+
+        var value = convo.extractResponse('others');
+
+        // test or validate value somehow
+        // can call convo.gotoThread() to change direction of conversation
+
+        console.log('VALIDATE: Emergency_v2 VARIABLE: others');
+
+        // always call next!
+        next();
+
+    });
+
+    // Validate user input: walking
+    controller.studio.validate('Emergency_v2','walking', function(convo, next) {
+
+        var value = convo.extractResponse('walking');
+
+        // test or validate value somehow
+        // can call convo.gotoThread() to change direction of conversation
+
+        console.log('VALIDATE: Emergency_v2 VARIABLE: walking');
+
+        // always call next!
+        next();
+
+    });
+
+    // Validate user input: bleeding
+    controller.studio.validate('Emergency_v2','bleeding', function(convo, next) {
+
+        var value = convo.extractResponse('bleeding');
+
+        // test or validate value somehow
+        // can call convo.gotoThread() to change direction of conversation
+
+        console.log('VALIDATE: Emergency_v2 VARIABLE: bleeding');
+
+        // always call next!
+        next();
+
+    });
+
+    // Validate user input: injured
+    controller.studio.validate('Emergency_v2','injured', function(convo, next) {
+
+        var value = convo.extractResponse('injured');
+
+        // test or validate value somehow
+        // can call convo.gotoThread() to change direction of conversation
+
+        console.log('VALIDATE: Emergency_v2 VARIABLE: injured');
 
         // always call next!
         next();
@@ -102,14 +162,14 @@ module.exports = function(controller) {
     });
 
     // Validate user input: question_1
-    controller.studio.validate('Emergency','question_1', function(convo, next) {
+    controller.studio.validate('Emergency_v2','question_1', function(convo, next) {
 
         var value = convo.extractResponse('question_1');
 
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log('VALIDATE: Emergency VARIABLE: question_1');
+        console.log('VALIDATE: Emergency_v2 VARIABLE: question_1');
 
         // always call next!
         next();
@@ -117,14 +177,14 @@ module.exports = function(controller) {
     });
 
     // Validate user input: question_2
-    controller.studio.validate('Emergency','question_2', function(convo, next) {
+    controller.studio.validate('Emergency_v2','question_2', function(convo, next) {
 
         var value = convo.extractResponse('question_2');
 
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log('VALIDATE: Emergency VARIABLE: question_2');
+        console.log('VALIDATE: Emergency_v2 VARIABLE: question_2');
 
         // always call next!
         next();
@@ -132,14 +192,14 @@ module.exports = function(controller) {
     });
 
     // Validate user input: question_3
-    controller.studio.validate('Emergency','question_3', function(convo, next) {
+    controller.studio.validate('Emergency_v2','question_3', function(convo, next) {
 
         var value = convo.extractResponse('question_3');
 
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log('VALIDATE: Emergency VARIABLE: question_3');
+        console.log('VALIDATE: Emergency_v2 VARIABLE: question_3');
 
         // always call next!
         next();
@@ -152,156 +212,252 @@ module.exports = function(controller) {
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
     // Before the default thread starts, run this:
-    controller.studio.beforeThread('Emergency','default', function(convo, next) {
+    controller.studio.beforeThread('Emergency_v2','default', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *default*');
+        console.log('In the script *Emergency_v2*, about to start the thread *default*');
 
         // always call next!
         next();
     });
 
     // Before the on_timeout thread starts, run this:
-    controller.studio.beforeThread('Emergency','on_timeout', function(convo, next) {
+    controller.studio.beforeThread('Emergency_v2','on_timeout', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *on_timeout*');
+        console.log('In the script *Emergency_v2*, about to start the thread *on_timeout*');
 
         // always call next!
         next();
     });
 
-    // Before the Unconscious_Y thread starts, run this:
-    controller.studio.beforeThread('Emergency','Unconscious_Y', function(convo, next) {
+    // Before the is_injured thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','is_injured', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *Unconscious_Y*');
+        console.log('In the script *Emergency_v2*, about to start the thread *is_injured*');
 
         // always call next!
         next();
     });
 
-    // Before the personal_condition thread starts, run this:
-    controller.studio.beforeThread('Emergency','personal_condition', function(convo, next) {
+    // Before the others thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','others', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *personal_condition*');
+        console.log('In the script *Emergency_v2*, about to start the thread *others*');
 
         // always call next!
         next();
     });
 
-    // Before the fallback thread starts, run this:
-    controller.studio.beforeThread('Emergency','fallback', function(convo, next) {
+    // Before the injured thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','injured', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *fallback*');
+        console.log('In the script *Emergency_v2*, about to start the thread *injured*');
 
         // always call next!
         next();
     });
 
-    // Before the injury_type thread starts, run this:
-    controller.studio.beforeThread('Emergency','injury_type', function(convo, next) {
+    // Before the severity_8_pers thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_8_pers', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *injury_type*');
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_8_pers*');
 
         // always call next!
         next();
     });
 
-    // Before the not_understood thread starts, run this:
-    controller.studio.beforeThread('Emergency','not_understood', function(convo, next) {
+    // Before the severity_6_pers thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_6_pers', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *not_understood*');
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_6_pers*');
 
         // always call next!
         next();
     });
 
-    // Before the injury_type_2 thread starts, run this:
-    controller.studio.beforeThread('Emergency','injury_type_2', function(convo, next) {
+    // Before the exit thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','exit', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *injury_type_2*');
+        console.log('In the script *Emergency_v2*, about to start the thread *exit*');
 
         // always call next!
         next();
     });
 
-    // Before the severity_10 thread starts, run this:
-    controller.studio.beforeThread('Emergency','severity_10', function(convo, next) {
+    // Before the not_bleeding thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','not_bleeding', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *severity_10*');
+        console.log('In the script *Emergency_v2*, about to start the thread *not_bleeding*');
 
         // always call next!
         next();
     });
 
-    // Before the severity_1 thread starts, run this:
-    controller.studio.beforeThread('Emergency','severity_1', function(convo, next) {
+    // Before the severity_2_pers thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_2_pers', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *severity_1*');
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_2_pers*');
 
         // always call next!
         next();
     });
 
-    // Before the severity_8 thread starts, run this:
-    controller.studio.beforeThread('Emergency','severity_8', function(convo, next) {
+    // Before the others_bleeding thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','others_bleeding', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *severity_8*');
+        console.log('In the script *Emergency_v2*, about to start the thread *others_bleeding*');
 
         // always call next!
         next();
     });
 
-    // Before the severity_4 thread starts, run this:
-    controller.studio.beforeThread('Emergency','severity_4', function(convo, next) {
+    // Before the others_unconscious thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','others_unconscious', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *severity_4*');
+        console.log('In the script *Emergency_v2*, about to start the thread *others_unconscious*');
 
         // always call next!
         next();
     });
 
-    // Before the severity_6 thread starts, run this:
-    controller.studio.beforeThread('Emergency','severity_6', function(convo, next) {
+    // Before the  thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','', function(convo, next) {
 
         /// do something fun and useful
         // convo.setVar('name','value');
 
-        console.log('In the script *Emergency*, about to start the thread *severity_6*');
+        console.log('In the script *Emergency_v2*, about to start the thread **');
+
+        // always call next!
+        next();
+    });
+
+    // Before the type_of_injuries thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','type_of_injuries', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *type_of_injuries*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the severity_2_others thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_2_others', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_2_others*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the severity_10_others thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_10_others', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_10_others*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the severity_8_others thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_8_others', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_8_others*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the severity_6_others thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_6_others', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_6_others*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the severity_4_others thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_4_others', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_4_others*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the severity_4_pers thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_4_pers', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_4_pers*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the others_not_breathing thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','others_not_breathing', function(convo, next) {
+
+        /// do something fun and useful
+        // convo.setVar('name','value');
+
+        console.log('In the script *Emergency_v2*, about to start the thread *others_not_breathing*');
 
         // always call next!
         next();
@@ -311,9 +467,9 @@ module.exports = function(controller) {
     // define an after hook
     // you may define multiple after hooks. they will run in the order they are defined.
     // See: https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md#controllerstudioafter
-    controller.studio.after('Emergency', function(convo, next) {
+    controller.studio.after('Emergency_v2', function(convo, next) {
 
-        console.log('AFTER: Emergency');
+        console.log('AFTER: Emergency_v2');
 
         // handle the outcome of the convo
         if (convo.successful()) {
