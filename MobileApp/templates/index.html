@@ -27,6 +27,17 @@
       <h1>IDRS</h1>
       <p class="lead">Intelligent Disaster Response System</p>
     </div> 
+
+    <form id="form" method="post" enctype="multipart/form-data" action = "{{ url_for('testButton') }}">
+      <input type="text" name="textInput" id="file" />
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="mainApp">
+      {% if inp %}
+      <h1>Hello {{ inp }} </h1>
+      {% endif %}
+    </div> 
     
     </main><!-- /.container -->
 
