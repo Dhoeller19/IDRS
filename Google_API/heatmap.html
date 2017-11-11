@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Heatmaps</title>
+    <script type="text/javascript" src="data.json"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -103,18 +104,18 @@
 
       // Heatmap data: 500 Points
       function getPoints() {
-        return [
-          new google.maps.LatLng(37.782551, -122.445368),
-          new google.maps.LatLng(37.782745, -122.444586),
-          new google.maps.LatLng(37.782842, -122.443688),
-          new google.maps.LatLng(37.782919, -122.442815),
-          new google.maps.LatLng(37.782992, -122.442112),
-          new google.maps.LatLng(37.783100, -122.441461),
-          new google.maps.LatLng(37.783206, -122.440829),
-          new google.maps.LatLng(37.783273, -122.440324),
-          new google.maps.LatLng(37.783316, -122.440023),
+        obj = JSON.parse(data);
+        var locations = [];
+        for(var i=0;i<Object.keys(obj).length;i++){
+          //locations.push(new google.maps.LatLng(obj[0].latitude, obj[0].longitude));
+          locations.push(new google.maps.LatLng(obj[i].latitude,obj[i].longitude));
+        }
+        //obj = JSON.parse('{"result":true,"count":1}');
+        return locations;
+          //new google.maps.LatLng(obj[0].latitude, obj[0].longitude),
+          //new google.maps.LatLng(37.782745, -122.444586),
 		  //new google.maps.LatLng(lat,long),
-        ];
+        
       }
     </script>
     <script async defer
