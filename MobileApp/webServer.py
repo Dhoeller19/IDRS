@@ -15,3 +15,10 @@ def testButton():
     print("You just said " + request.form['textInput'])
     return render_template('index.html', inp = request.form['textInput'])
 
+@app.route('/submitData/<data>')
+def submitData(data):
+    print("Data submitted: ")
+    with open("data.csv", "a") as myfile:
+    	myfile.write("{"+data+"}"+",")
+    return render_template('index.html')
+
