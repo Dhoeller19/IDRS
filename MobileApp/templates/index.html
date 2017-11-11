@@ -6,6 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="{{ url_for('static', filename='Bootstrap/favicon.ico') }}">
+    <script src="https://code.s4d.io/widget-space/production/bundle.js"></script>
+    <link rel="stylesheet" href="https://code.s4d.io/widget-space/production/main.css">
 
     <title>IDRS App</title>
 
@@ -53,6 +55,16 @@
 
     <script src="{{ url_for('static', filename='Bootstrap/assets/js/vendor/popper.min.js') }}"></script>
     <script src="{{ url_for('static', filename='Bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+    <div id="my-ciscospark-widget" style="width: 500px; height: 500px;"/>
+    <script>
+      var widgetEl = document.getElementById('my-ciscospark-widget');
+      // Init a new widget
+      ciscospark.widget(widgetEl).spaceWidget({
+        accessToken: 'YzNmMWU5ZTAtYmIwNy00OGUyLWExYTMtMGVkN2JiMTM5ZWE0NzkyNDQ5MzYtMWMy',
+        toPersonEmail: 'spark@sparkbot.io'
+      });
+    </script>
 
   </body>
 </html>
