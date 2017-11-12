@@ -64,11 +64,11 @@
 	var map, heatmap;
 
 	function initMap() {
-		map = new google.maps.Map(document.getElementById('map'), {
-		  zoom: 13,
-		  center: {lat: 37.775, lng: -122.434},
-		  mapTypeId: 'satellite'
-		});
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: {lat: 46.51908, lng: 6.5622},
+          mapTypeId: 'roadmap'
+        });
 
 		heatmap = new google.maps.visualization.HeatmapLayer({
 		  data: getPoints(),
@@ -132,14 +132,9 @@
         obj = JSON.parse(data);
         var locations = [];
         for(var i=0;i<Object.keys(obj).length;i++){
-          //locations.push(new google.maps.LatLng(obj[0].latitude, obj[0].longitude));
-          locations.push(new google.maps.LatLng(obj[i].latitude,obj[i].longitude));
+          locations.push({location: new google.maps.LatLng(obj[i].latitude,obj[i].longitude), weight: obj[i].weight});
         }
-        //obj = JSON.parse('{"result":true,"count":1}');
         return locations;
-          //new google.maps.LatLng(obj[0].latitude, obj[0].longitude),
-          //new google.maps.LatLng(37.782745, -122.444586),
-		  //new google.maps.LatLng(lat,long),
         
       }
 
