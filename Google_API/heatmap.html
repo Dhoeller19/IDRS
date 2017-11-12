@@ -46,12 +46,9 @@
   <body>
     <div id="floating-panel">
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-      <button onclick="changeGradient()">Change gradient</button>
-      <button onclick="changeRadius()">Change radius</button>
-      //<button onclick="changeOpacity()">Change opacity</button>
 	  <button onclick="updateMap(highPriority(getPoints()))">High priority</button>
 	  <button onclick="updateMap(lowPriority(getPoints()))">Low priority</button>
-	  <button onclick="updateMap(getPoints())">All events</button>
+	  <button onclick="reinitializeMap()">All events</button>
     </div>
     <div id="map"></div>
 	
@@ -65,7 +62,7 @@
 
 	function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 18,
+          zoom: 19,
           center: {lat: 46.51908, lng: 6.5622},
           mapTypeId: 'roadmap'
         });
@@ -76,13 +73,16 @@
 		  opacity: 1,
 		  //dissipation : true
 		});
-	}
+
+    heatmap.set('radius',20)	
+  }
+
 
 	function updateMap(arg) {
 		map = new google.maps.Map(document.getElementById('map'), {
-		  zoom: 13,
-		  center: {lat: 37.775, lng: -122.434},
-		  mapTypeId: 'satellite'
+		  zoom: 19,
+		  center: {lat: 46.51908, lng: 6.5622},
+		  mapTypeId: 'roadmap'
 		});
 
 		heatmap = new google.maps.visualization.HeatmapLayer({
@@ -91,6 +91,11 @@
 		  opacity: 1,
 		  //dissipation : true
 		});
+		heatmap.set('radius',20)
+	}
+
+	function reinitializeMap() {
+		window.location.reload(false);
 	}
 
 	function toggleHeatmap() {
