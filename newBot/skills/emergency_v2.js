@@ -7,6 +7,24 @@ Botkit Studio Skill module to enhance the "Emergency_v2" script
 var severity_pers, severity_others;
 var nr_others = 0;
 
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
+
+function reqListener () {
+  console.log(this.responseText);
+}
+
+function buildUrl(weight) {
+  var URL = "http://04caa405.ngrok.io/submitData/\"weight\":" + weight.toString()
+  return URL
+}
+
+function sendResquest(weight) {
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", buildUrl(weight));
+    oReq.send();
+}
+
 module.exports = function(controller) {
     // define a before hook
     // you may define multiple before hooks. they will run in the order they are defined.
@@ -19,6 +37,7 @@ module.exports = function(controller) {
 
         console.log('BEFORE: Emergency_v2');
         // don't forget to call next, or your conversation will never continue.
+      
         next();
 
     });
@@ -50,9 +69,6 @@ module.exports = function(controller) {
           convo.gotoThread('others_nobreath')
           //nr_others = 1
         }
-
-        console.log('NR_OTHERS');
-        console.log(nr_others);
 
         next();
 
@@ -250,7 +266,7 @@ module.exports = function(controller) {
     controller.studio.beforeThread('Emergency_v2','is_injured', function(convo, next) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *is_injured*');
-
+      
         next();
     });
 
@@ -264,9 +280,9 @@ module.exports = function(controller) {
 
     // Before the injured thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','injured', function(convo, next) {
-
+      
         console.log('In the script *Emergency_v2*, about to start the thread *injured*');
-
+      
         next();
     });
 
@@ -455,8 +471,15 @@ module.exports = function(controller) {
 
             console.log('SEVERITY_OTHERS');
             console.log(severity_others);
-          
-          // Pass data to main server
+
+            console.log('NR_OTHERS');
+            console.log(nr_others);
+
+            sendResquest(severity_pers)
+
+          for (var i = 0; i < nr_others; i++) {
+            sendResquest(severity_others)
+          }
 
         }
 
