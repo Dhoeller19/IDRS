@@ -59,9 +59,9 @@
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
+          zoom: 18,
           center: {lat: 46.51908, lng: 6.5622},
-          mapTypeId: 'satellite'
+          mapTypeId: 'roadmap'
         });
 
         heatmap = new google.maps.visualization.HeatmapLayer({
@@ -104,17 +104,12 @@
 
       // Heatmap data: 500 Points
       function getPoints() {
-
         obj = JSON.parse(data);
         var locations = [];
         for(var i=0;i<Object.keys(obj).length;i++){
-          locations.push({location: new google.maps.LatLng(obj[i].latitude,obj[i].longitude),weight:obj[i].weight});
+          locations.push({location: new google.maps.LatLng(obj[i].latitude,obj[i].longitude), weight: obj[i].weight});
         }
-        // //obj = JSON.parse('{"result":true,"count":1}');
-        return locations; //[{location: new google.maps.LatLng(46.51906, 6.56199), weight: 5}];
-          //new google.maps.LatLng(obj[0].latitude, obj[0].longitude),
-          //new google.maps.LatLng(37.782745, -122.444586),
-		  //new google.maps.LatLng(lat,long),
+        return locations;
         
       }
     </script>

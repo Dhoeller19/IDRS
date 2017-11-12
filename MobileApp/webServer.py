@@ -1,4 +1,5 @@
 from flask import Flask, url_for, render_template, request
+import os
 
 app = Flask(__name__)
 
@@ -19,19 +20,10 @@ def testButton():
 def submitData(data):
     print("Data submitted: ")
     with open("data.json", 'rb+') as myfile:
-    	filehandle.seek(-2, os.SEEK_END)
-    	filehandle.truncate()
+        myfile.seek(-2, os.SEEK_END)
+        myfile.truncate()
     with open("data.json", "a") as myfile:
     	myfile.write("{"+data+"}]';")
     return render_template('index.html')
 
-@app.route('/updateData/<data>')
-def submitData(data):
-    print("Data submitted: ")
-    with open("data.json", 'rb+') as myfile:
-    	filehandle.seek(-2, os.SEEK_END)
-    	filehandle.truncate()
-    with open("data.json", "a") as myfile:
-    	myfile.write("{"+data+"}]';")
-    return render_template('index.html')
 
