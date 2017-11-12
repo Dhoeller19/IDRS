@@ -26,8 +26,8 @@ def submitData(data):
     j = json.loads(r.text)
     lat = j['latitude']
     lon = j['longitude']
-    lat = 46.7898456
-    lon = 78.02329
+    lat = 46.51908
+    lon = 6.5622
     print type(data)
     with open("data.json", 'rb+') as myfile:
         myfile.seek(-3, os.SEEK_END)
