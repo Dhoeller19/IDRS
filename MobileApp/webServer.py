@@ -23,7 +23,7 @@ def submitData(data):
         myfile.seek(-2, os.SEEK_END)
         myfile.truncate()
     with open("data.json", "a") as myfile:
-    	myfile.write("{"+data+"}]';")
+     	myfile.write("{"+data+"}" + "," + "]';")
     return render_template('index.html')
 
 
