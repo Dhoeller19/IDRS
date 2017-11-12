@@ -64,6 +64,7 @@
     <div id="floating-panel">
     	<div class="row"> 
 			<div class="col-xs-12 col-md-12 col-ld-12 col-centered">
+      <button class="btn btn-primary btn-lg" onclick="toggleRoute()">Toggle Routes</button>
       <button class="btn btn-primary btn-lg" onclick="toggleHeatmap()">Toggle Heatmap</button>
 	  <button id="refresh" class="btn btn-primary btn-lg" onclick="updateMap(highPriority(getPoints()))">High priority</button>
 	  <button class="btn btn-primary btn-lg" onclick="updateMap(lowPriority(getPoints()))">Low priority</button>
@@ -122,7 +123,94 @@
 		heatmap.setMap(heatmap.getMap() ? null : map);
 	}
 
+	var routeShown = false;
 
+	function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointA2, pointB, pointB2) {
+		directionsService.route({
+		    origin: pointA,
+		    destination: pointB,
+		    travelMode: google.maps.TravelMode.DRIVING
+		  }, function(response, status) {
+		    if (status == google.maps.DirectionsStatus.OK) {
+		      directionsDisplay[0].setDirections(response);
+		    } else {
+		      window.alert('Directions request failed due to ' + status);
+		    }
+		  });
+		directionsService.route({
+		    origin: pointA2,
+		    destination: pointB2,
+		    travelMode: google.maps.TravelMode.DRIVING
+		  }, function(response, status) {
+		    if (status == google.maps.DirectionsStatus.OK) {
+		      directionsDisplay[1].setDirections(response);
+		    } else {
+		      window.alert('Directions request failed due to ' + status);
+		    }
+		  });
+	}
+
+	function toggleRoute() {
+
+		if (!routeShown) {
+
+		var directionsDisplay = [];
+	  	var pointA = new google.maps.LatLng(46.523346, 6.500146),
+	  	    pointA2 = new google.maps.LatLng(46.529216, 6.615031),
+	    	pointB = new google.maps.LatLng(46.518466, 6.561523),
+	    	pointB2 = new google.maps.LatLng(46.518195, 6.569877),
+		    myOptions = {
+		      zoom: 7,
+		      center: pointA
+	    	},
+		    markerA = new google.maps.Marker({
+		      position: pointA,
+		      title: "Hospital De Morges",
+		      label: "H1",
+		      map: map
+		    });
+		    markerA2 = new google.maps.Marker({
+		      position: pointA2,
+		      title: "Children's Hospital",
+		      label: "H2",
+		      map: map
+		    });
+		    markerB = new google.maps.Marker({
+		      position: pointB,
+		      title: "Emergency 1",
+		      label: "E1",
+		      map: map
+		    });
+		    markerB2 = new google.maps.Marker({
+		      position: pointB2,
+		      title: "Emergency 2",
+		      label: "E2",
+		      map: map
+		    });
+
+			directionsService = new google.maps.DirectionsService,
+	    	directionsDisplay[0] = new google.maps.DirectionsRenderer({
+	    		suppressMarkers: true,
+	      		map: map
+	    	});
+	    	directionsDisplay[1] = new google.maps.DirectionsRenderer({
+	    		suppressMarkers: true,
+	      		map: map
+	    	});
+
+		    calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointA2, pointB, pointB2)
+	    	heatmap.set('radius',10)
+			routeShown = true
+			// initMap();
+			} else {
+
+				updateMap(highPriority(getPoints()))
+	    		heatmap.set('radius',20)
+				routeShown = false
+
+			}
+
+		}
 
       // Heatmap data: 500 Points
       function getPoints() {
@@ -164,11 +252,11 @@
 	}
 
 
-	var myVar = setInterval(myTimer, 5000);
+	// var myVar = setInterval(myTimer, 5000);
 
-		function myTimer() {
-			updateMap(highPriority(getPoints()))
-		}
+	// 	function myTimer() {
+	// 		updateMap(highPriority(getPoints()))
+	// 	}
 
     </script>
 
