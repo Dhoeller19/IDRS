@@ -5,6 +5,7 @@ Botkit Studio Skill module to enhance the "Emergency_v2" script
 */
 
 var severity_pers, severity_others;
+var nr_others = 0;
 
 module.exports = function(controller) {
     // define a before hook
@@ -32,12 +33,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('isinjured');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: isinjured');
 
-        // always call next!
         next();
 
     });
@@ -46,13 +43,17 @@ module.exports = function(controller) {
     controller.studio.validate('Emergency_v2','nr_others', function(convo, next) {
 
         var value = convo.extractResponse('nr_others');
+        console.log(!isNaN(value))
+        if (!isNaN(value)) {
+          nr_others = parseInt(value, 10)
+        } else {
+          convo.gotoThread('others_nobreath')
+          //nr_others = 1
+        }
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
+        console.log('NR_OTHERS');
+        console.log(nr_others);
 
-        console.log('VALIDATE: Emergency_v2 VARIABLE: nr_others');
-
-        // always call next!
         next();
 
     });
@@ -62,12 +63,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('others_unc');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: others_unc');
 
-        // always call next!
         next();
 
     });
@@ -77,12 +74,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('others_y');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: others_y');
 
-        // always call next!
         next();
 
     });
@@ -92,12 +85,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('others_nb');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: others_nb');
 
-        // always call next!
         next();
 
     });
@@ -107,12 +96,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('children');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: children');
 
-        // always call next!
         next();
 
     });
@@ -122,12 +107,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('injury_types');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: injury_types');
 
-        // always call next!
         next();
 
     });
@@ -137,12 +118,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('others_unconscious');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: others_unconscious');
 
-        // always call next!
         next();
 
     });
@@ -152,12 +129,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('others_not_breathing');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: others_not_breathing');
 
-        // always call next!
         next();
 
     });
@@ -167,12 +140,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('others_bleeding');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: others_bleeding');
 
-        // always call next!
         next();
 
     });
@@ -182,12 +151,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('others');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: others');
 
-        // always call next!
         next();
 
     });
@@ -197,12 +162,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('walking');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: walking');
 
-        // always call next!
         next();
 
     });
@@ -212,12 +173,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('bleeding');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: bleeding');
 
-        // always call next!
         next();
 
     });
@@ -227,12 +184,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('injured');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: injured');
 
-        // always call next!
         next();
 
     });
@@ -242,12 +195,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('question_1');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: question_1');
 
-        // always call next!
         next();
 
     });
@@ -257,12 +206,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('question_2');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: question_2');
 
-        // always call next!
         next();
 
     });
@@ -272,12 +217,8 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('question_3');
 
-        // test or validate value somehow
-        // can call convo.gotoThread() to change direction of conversation
-
         console.log('VALIDATE: Emergency_v2 VARIABLE: question_3');
 
-        // always call next!
         next();
 
     });
@@ -290,60 +231,42 @@ module.exports = function(controller) {
     // Before the default thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','default', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
 
         console.log('In the script *Emergency_v2*, about to start the thread *default*');
 
-        // always call next!
         next();
     });
 
     // Before the on_timeout thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','on_timeout', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
 
         console.log('In the script *Emergency_v2*, about to start the thread *on_timeout*');
 
-        // always call next!
         next();
     });
 
     // Before the is_injured thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','is_injured', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *is_injured*');
 
-        // always call next!
         next();
     });
 
     // Before the others thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','others', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *others*');
 
-        // always call next!
         next();
     });
 
     // Before the injured thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','injured', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *injured*');
 
-        // always call next!
         next();
     });
 
@@ -354,7 +277,6 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_8_pers*');
 
-        // always call next!
         next();
     });
 
@@ -365,31 +287,22 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_6_pers*');
 
-        // always call next!
         next();
     });
 
     // Before the exit thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','exit', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *exit*');
 
-        // always call next!
         next();
     });
 
     // Before the not_bleeding thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','not_bleeding', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *not_bleeding*');
 
-        // always call next!
         next();
     });
 
@@ -400,43 +313,30 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_2_pers*');
 
-        // always call next!
         next();
     });
 
     // Before the others_bleeding thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','others_bleeding', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *others_bleeding*');
 
-        // always call next!
         next();
     });
 
     // Before the others_unconscious thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','others_unconscious', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *others_unconscious*');
 
-        // always call next!
         next();
     });
 
     // Before the type_of_injuries thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','type_of_injuries', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *type_of_injuries*');
 
-        // always call next!
         next();
     });
 
@@ -447,7 +347,6 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_2_others*');
 
-        // always call next!
         next();
     });
 
@@ -458,7 +357,6 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_10_others*');
 
-        // always call next!
         next();
     });
 
@@ -469,7 +367,6 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_8_others*');
 
-        // always call next!
         next();
     });
 
@@ -480,7 +377,6 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_6_others*');
 
-        // always call next!
         next();
     });
 
@@ -491,7 +387,6 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_4_others*');
 
-        // always call next!
         next();
     });
 
@@ -502,43 +397,30 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_4_pers*');
 
-        // always call next!
         next();
     });
 
     // Before the others_nobreath thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','others_nobreath', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *others_nobreath*');
 
-        // always call next!
         next();
     });
 
     // Before the dummy thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','dummy', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *dummy*');
 
-        // always call next!
         next();
     });
 
     // Before the dummy2 thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','dummy2', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
         console.log('In the script *Emergency_v2*, about to start the thread *dummy2*');
 
-        // always call next!
         next();
     });
 
@@ -549,7 +431,6 @@ module.exports = function(controller) {
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_1_pers*');
 
-        // always call next!
         next();
     });
 
@@ -565,7 +446,17 @@ module.exports = function(controller) {
         if (convo.successful()) {
 
             var responses = convo.extractResponses();
+          
             // do something with the responses
+          
+          
+            console.log('SEVERITY_PERS');
+            console.log(severity_pers);
+
+            console.log('SEVERITY_OTHERS');
+            console.log(severity_others);
+          
+          // Pass data to main server
 
         }
 
