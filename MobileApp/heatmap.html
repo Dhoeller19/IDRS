@@ -9,6 +9,26 @@
     <link href="../MobileApp/static/Bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Heatmaps</title>
     <script type="text/javascript" src="data_epfl.json"></script>
+
+    <script type="text/javascript">
+    	function loadJsFile(filename, dataIsLoaded){
+    		var fileref = document.createElement('script');
+    		fileref.setAttribute("type","text/javascript");
+    		fileref.setAttribute("src", filename);
+    		fileref.onload = dataIsLoaded;
+
+		    if (typeof fileref!="undefined"){
+		        document.getElementsByTagName("head")[0].appendChild(fileref);
+		    }  
+}
+
+function dataIsLoaded(){
+    console.log("Your data is ready to use");
+}
+
+
+
+    </script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -95,45 +115,20 @@
 		  opacity: 1,
 		  //dissipation : true
 		});
-		heatmap.set('radius',20)
+		heatmap.set('radius',25)
 	}
 
 	function toggleHeatmap() {
 		heatmap.setMap(heatmap.getMap() ? null : map);
 	}
 
-	function changeGradient() {
-		var gradient = [
-		  'rgba(0, 255, 255, 0)',
-		  'rgba(0, 255, 255, 1)',
-		  'rgba(0, 191, 255, 1)',
-		  'rgba(0, 127, 255, 1)',
-		  'rgba(0, 63, 255, 1)',
-		  'rgba(0, 0, 255, 1)',
-		  'rgba(0, 0, 223, 1)',
-		  'rgba(0, 0, 191, 1)',
-		  'rgba(0, 0, 159, 1)',
-		  'rgba(0, 0, 127, 1)',
-		  'rgba(63, 0, 91, 1)',
-		  'rgba(127, 0, 63, 1)',
-		  'rgba(191, 0, 31, 1)',
-		  'rgba(255, 0, 0, 1)'
-		]
-		heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
-	}
 
-	function changeRadius() {
-		heatmap.set('radius', heatmap.get('radius') ? null : 20);
-	}
-
-
-	function changeOpacity() {
-		heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
-	}	
-  
 
       // Heatmap data: 500 Points
       function getPoints() {
+		var jsonFile= "data_epfl.json";
+		loadJsFile(jsonFile, dataIsLoaded);
+
         obj = JSON.parse(data);
         var locations = [];
         for(var i=0;i<Object.keys(obj).length;i++){
@@ -169,11 +164,11 @@
 	}
 
 
-	// var myVar = setInterval(myTimer, 5000);
+	var myVar = setInterval(myTimer, 5000);
 
-	// 	function myTimer() {
-	// 		updateMap(highPriority(getPoints()))
-	// 	}
+		function myTimer() {
+			updateMap(highPriority(getPoints()))
+		}
 
     </script>
 

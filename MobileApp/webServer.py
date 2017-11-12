@@ -26,13 +26,13 @@ def submitData(data):
     j = json.loads(r.text)
     lat = j['location']['lat']
     lon = j['location']['lng']
-    #lat = 46.51908
-    #lon = 6.5622
+    lat = 46.51858
+    lon = 6.5618
     print type(data)
-    with open("data.json", 'rb+') as myfile:
+    with open("data_epfl.json", 'rb+') as myfile:
         myfile.seek(-3, os.SEEK_END)
         myfile.truncate()
-    with open("data.json", "a") as myfile:
+    with open("data_epfl.json", "a") as myfile:
      	#myfile.write("{"+data+"}" + "," + "]';")
         myfile.write(',{' + str(data) + ',' + '"latitude":' + str(lat) + ',"longitude":' + str(lon) + '}]\';')
     return render_template('index.html', doneChatting=1)
