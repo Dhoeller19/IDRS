@@ -16,7 +16,7 @@ if __name__ == '__main__':
 @app.route('/testButton', methods=['POST'])
 def testButton():
     print("You just said " + request.form['textInput'])
-    return render_template('index.html', inp = request.form['textInput'])
+    return render_template('index.html', inp = request.form['textInput'], )
 
 @app.route('/submitData/<data>')
 def submitData(data):
@@ -35,6 +35,6 @@ def submitData(data):
     with open("data.json", "a") as myfile:
      	#myfile.write("{"+data+"}" + "," + "]';")
         myfile.write(',{' + str(data) + ',' + '"latitude":' + str(lat) + ',"longitude":' + str(lon) + '}]\';')
-    return render_template('index.html')
+    return render_template('index.html', doneChatting=1)
 
 
