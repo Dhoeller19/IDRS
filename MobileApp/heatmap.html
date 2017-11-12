@@ -25,27 +25,17 @@
       #floating-panel {
         position: absolute;
         top: 10px;
-        left: 25%;
+        left: 36%;
         z-index: 5;
         background-color: rgba(255, 255, 255, 0.5);
-        padding: 5px;
-        //border: 1px solid #999;
+        padding: 0px;
         text-align: center;
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
-        padding-left: 10px;
+        padding-left: 0px;
 		
       }
-      #floating-panel {
-		//background-color: rgba(0, 0, 0, 0.2);
-        //border: 1px solid #999;
-        left: 25%;
-        padding: 5px;
-        position: absolute;
-        top: 10px;
-        z-index: 5;
-		//opacity: 0.5;
-      }
+
     </style>
   </head>
 
@@ -54,12 +44,11 @@
     <div id="floating-panel">
     	<div class="row"> 
 			<div class="col-xs-12 col-md-12 col-ld-12 col-centered">
-      <button class="btn btn-primary" onclick="toggleHeatmap()">Toggle Heatmap</button>
-	  <button class="btn btn-primary" onclick="updateMap(highPriority(getPoints()))">High priority</button>
-	  <button class="btn btn-primary" onclick="updateMap(lowPriority(getPoints()))">Low priority</button>
-	  <button class="btn btn-primary" onclick="updateMap(getPoints())">All events</button>
+      <button class="btn btn-primary btn-lg" onclick="toggleHeatmap()">Toggle Heatmap</button>
+	  <button class="btn btn-primary btn-lg" onclick="updateMap(highPriority(getPoints()))">High priority</button>
+	  <button class="btn btn-primary btn-lg" onclick="updateMap(lowPriority(getPoints()))">Low priority</button>
+	  <button class="btn btn-primary btn-lg" onclick="updateMap(getPoints())">All events</button>
     </div>
-
     </div>
     </div>
 
@@ -106,11 +95,6 @@
 		  opacity: 1,
 		  //dissipation : true
 		});
-		heatmap.set('radius',20)
-	}
-
-	function reinitializeMap() {
-		window.location.reload(false);
 	}
 
 	function toggleHeatmap() {

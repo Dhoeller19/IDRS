@@ -1,0 +1,10 @@
+[
+  {
+    "Place": "Home",
+    "Adress": "Avenue des champs-elysees, paris"
+  },
+  {
+    "Place": "Test_address",
+    "Adress": "Place de la concorde, paris"
+  }
+]
