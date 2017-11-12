@@ -4,6 +4,7 @@ Botkit Studio Skill module to enhance the "Emergency_v2" script
 
 */
 
+var severity_pers, severity_others;
 
 module.exports = function(controller) {
     // define a before hook
@@ -349,8 +350,7 @@ module.exports = function(controller) {
     // Before the severity_8_pers thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','severity_8_pers', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
+        severity_pers = 8
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_8_pers*');
 
@@ -361,8 +361,7 @@ module.exports = function(controller) {
     // Before the severity_6_pers thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','severity_6_pers', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
+        severity_pers = 6
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_6_pers*');
 
@@ -397,8 +396,7 @@ module.exports = function(controller) {
     // Before the severity_2_pers thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','severity_2_pers', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
+        severity_pers = 2
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_2_pers*');
 
@@ -445,8 +443,7 @@ module.exports = function(controller) {
     // Before the severity_2_others thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','severity_2_others', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
+        severity_others = 2
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_2_others*');
 
@@ -457,8 +454,7 @@ module.exports = function(controller) {
     // Before the severity_10_others thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','severity_10_others', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
+        severity_others = 10
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_10_others*');
 
@@ -469,8 +465,7 @@ module.exports = function(controller) {
     // Before the severity_8_others thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','severity_8_others', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
+        severity_others = 8
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_8_others*');
 
@@ -481,8 +476,7 @@ module.exports = function(controller) {
     // Before the severity_6_others thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','severity_6_others', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
+        severity_others = 6
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_6_others*');
 
@@ -493,8 +487,7 @@ module.exports = function(controller) {
     // Before the severity_4_others thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','severity_4_others', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
+        severity_others = 4
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_4_others*');
 
@@ -505,8 +498,7 @@ module.exports = function(controller) {
     // Before the severity_4_pers thread starts, run this:
     controller.studio.beforeThread('Emergency_v2','severity_4_pers', function(convo, next) {
 
-        /// do something fun and useful
-        // convo.setVar('name','value');
+        severity_pers = 4
 
         console.log('In the script *Emergency_v2*, about to start the thread *severity_4_pers*');
 
@@ -545,6 +537,17 @@ module.exports = function(controller) {
         // convo.setVar('name','value');
 
         console.log('In the script *Emergency_v2*, about to start the thread *dummy2*');
+
+        // always call next!
+        next();
+    });
+
+    // Before the severity_1_pers thread starts, run this:
+    controller.studio.beforeThread('Emergency_v2','severity_1_pers', function(convo, next) {
+
+        severity_pers = 1
+
+        console.log('In the script *Emergency_v2*, about to start the thread *severity_1_pers*');
 
         // always call next!
         next();
