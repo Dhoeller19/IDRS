@@ -46,12 +46,9 @@
   <body>
     <div id="floating-panel">
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-      <button onclick="changeGradient()">Change gradient</button>
-      <button onclick="changeRadius()">Change radius</button>
-      //<button onclick="changeOpacity()">Change opacity</button>
 	  <button onclick="updateMap(highPriority(getPoints()))">High priority</button>
 	  <button onclick="updateMap(lowPriority(getPoints()))">Low priority</button>
-	  <button onclick="updateMap(getPoints())">All events</button>
+	  <button onclick="reinitializeMap()">All events</button>
     </div>
     <div id="map"></div>
 	
@@ -94,6 +91,11 @@
 		  opacity: 1,
 		  //dissipation : true
 		});
+		heatmap.set('radius',20)
+	}
+
+	function reinitializeMap() {
+		window.location.reload(false);
 	}
 
 	function toggleHeatmap() {
