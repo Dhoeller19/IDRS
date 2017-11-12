@@ -26,6 +26,21 @@ module.exports = function(controller) {
     // See: https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md#controllerstudiovalidate
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+    // Validate user input: isinjured
+    controller.studio.validate('Emergency_v2','isinjured', function(convo, next) {
+
+        var value = convo.extractResponse('isinjured');
+
+        // test or validate value somehow
+        // can call convo.gotoThread() to change direction of conversation
+
+        console.log('VALIDATE: Emergency_v2 VARIABLE: isinjured');
+
+        // always call next!
+        next();
+
+    });
+
     // Validate user input: nr_others
     controller.studio.validate('Emergency_v2','nr_others', function(convo, next) {
 
@@ -410,18 +425,6 @@ module.exports = function(controller) {
         // convo.setVar('name','value');
 
         console.log('In the script *Emergency_v2*, about to start the thread *others_unconscious*');
-
-        // always call next!
-        next();
-    });
-
-    // Before the  thread starts, run this:
-    controller.studio.beforeThread('Emergency_v2','', function(convo, next) {
-
-        /// do something fun and useful
-        // convo.setVar('name','value');
-
-        console.log('In the script *Emergency_v2*, about to start the thread **');
 
         // always call next!
         next();
