@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../MobileApp/static/Bootstrap/favicon.ico">
+    <link href="../MobileApp/static/Bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Heatmaps</title>
     <script type="text/javascript" src="data.json"></script>
     <style>
@@ -12,6 +17,7 @@
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
+      	text-align: center;
         height: 100%;
         margin: 0;
         padding: 0;
@@ -44,15 +50,18 @@
   </head>
 
   <body>
+
     <div id="floating-panel">
-      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-      <button onclick="changeGradient()">Change gradient</button>
-      <button onclick="changeRadius()">Change radius</button>
-      //<button onclick="changeOpacity()">Change opacity</button>
-	  <button onclick="updateMap(highPriority(getPoints()))">High priority</button>
-	  <button onclick="updateMap(lowPriority(getPoints()))">Low priority</button>
-	  <button onclick="updateMap(getPoints())">All events</button>
+    	<div class="row"> 
+			<div class="col-xs-12 col-md-12 col-ld-12 col-centered">
+      <button class="btn btn-primary" onclick="toggleHeatmap()">Toggle Heatmap</button>
+	  <button class="btn btn-primary" onclick="updateMap(highPriority(getPoints()))">High priority</button>
+	  <button class="btn btn-primary" onclick="updateMap(lowPriority(getPoints()))">Low priority</button>
+	  <button class="btn btn-primary" onclick="updateMap(getPoints())">All events</button>
     </div>
+    </div>
+    </div>
+
     <div id="map"></div>
 	
 
@@ -175,6 +184,13 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6RuyYe63pjZeJp7patZly7LkevxZoYA0&libraries=visualization&callback=initMap"> //CHANGE KEY?
     </script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script>window.jQuery || document.write('<script src="../MobileApp/static/Bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+    <script src="../MobileApp/static/Bootstrap/assets/js/vendor/popper.min.js"></script>
+    <script src="../MobileApp/static/Bootstrap/dist/js/bootstrap.min.js"></script>
 
   </body>
 </html>
