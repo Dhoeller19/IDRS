@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Heatmaps</title>
+    <script type="text/javascript" src="data.json"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -20,22 +21,24 @@
         top: 10px;
         left: 25%;
         z-index: 5;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.5);
         padding: 5px;
-        border: 1px solid #999;
+        //border: 1px solid #999;
         text-align: center;
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
         padding-left: 10px;
+		
       }
       #floating-panel {
-        background-color: #fff;
-        border: 1px solid #999;
+		//background-color: rgba(0, 0, 0, 0.2);
+        //border: 1px solid #999;
         left: 25%;
         padding: 5px;
         position: absolute;
         top: 10px;
         z-index: 5;
+		//opacity: 0.5;
       }
     </style>
   </head>
@@ -45,7 +48,7 @@
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
       <button onclick="changeGradient()">Change gradient</button>
       <button onclick="changeRadius()">Change radius</button>
-      <button onclick="changeOpacity()">Change opacity</button>
+      //<button onclick="changeOpacity()">Change opacity</button>
 	  <button onclick="updateMap(highPriority(getPoints()))">High priority</button>
 	  <button onclick="updateMap(lowPriority(getPoints()))">Low priority</button>
 	  <button onclick="updateMap(getPoints())">All events</button>
@@ -118,31 +121,27 @@
 		heatmap.set('radius', heatmap.get('radius') ? null : 20);
 	}
 
+
 	function changeOpacity() {
 		heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
 	}	
-		
-	// Heatmap data: Weight should be taken from severity of the injury
-	function getPoints() {
-		var list=[
-			{location: new google.maps.LatLng(37.782, -122.447), weight: 0.5},
-			{location: new google.maps.LatLng(37.782, -122.445), weight: 1},
-			{location: new google.maps.LatLng(37.782, -122.443), weight: 2},
-			{location: new google.maps.LatLng(37.782, -122.441), weight: 3},
-			{location: new google.maps.LatLng(37.782, -122.439), weight: 2},
-			{location: new google.maps.LatLng(37.782, -122.437), weight: 1},
-			{location: new google.maps.LatLng(37.782, -122.435), weight: 0.5},
-			{location: new google.maps.LatLng(37.785, -122.447), weight: 3},
-			{location: new google.maps.LatLng(37.785, -122.445), weight: 2},
-			{location: new google.maps.LatLng(37.785, -122.443), weight: 1},
-			{location: new google.maps.LatLng(37.785, -122.441), weight: 0.5},
-			{location: new google.maps.LatLng(37.785, -122.439), weight: 1},
-			{location: new google.maps.LatLng(37.785, -122.437), weight: 2},
-			{location: new google.maps.LatLng(37.785, -122.435), weight: 3},
-			{location: new google.maps.LatLng(37.783, -122.440), weight: 1}]
-		return list;
+  
+
+      // Heatmap data: 500 Points
+      function getPoints() {
+        obj = JSON.parse(data);
+        var locations = [];
+        for(var i=0;i<Object.keys(obj).length;i++){
+          //locations.push(new google.maps.LatLng(obj[0].latitude, obj[0].longitude));
+          locations.push(new google.maps.LatLng(obj[i].latitude,obj[i].longitude));
+        }
+        //obj = JSON.parse('{"result":true,"count":1}');
+        return locations;
+          //new google.maps.LatLng(obj[0].latitude, obj[0].longitude),
+          //new google.maps.LatLng(37.782745, -122.444586),
 		  //new google.maps.LatLng(lat,long),
-	}  
+        
+      }
 
 	function deletePoint(arg) {
 	return arg.splice(1,5);
@@ -168,7 +167,6 @@
 		}
 		return output
 	}
-		  
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6RuyYe63pjZeJp7patZly7LkevxZoYA0&libraries=visualization&callback=initMap"> //CHANGE KEY?
