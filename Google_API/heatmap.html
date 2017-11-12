@@ -59,6 +59,7 @@
 	  <button class="btn btn-primary" onclick="updateMap(lowPriority(getPoints()))">Low priority</button>
 	  <button class="btn btn-primary" onclick="updateMap(getPoints())">All events</button>
     </div>
+
     </div>
     </div>
 
@@ -105,6 +106,11 @@
 		  opacity: 1,
 		  //dissipation : true
 		});
+		heatmap.set('radius',20)
+	}
+
+	function reinitializeMap() {
+		window.location.reload(false);
 	}
 
 	function toggleHeatmap() {
